@@ -1,0 +1,14 @@
+= render 'toindex'
+%h1 ポスト詳細
+%div 
+  ID: 
+  = @post.id
+%div 
+  content:
+  = @post.content
+%div 
+  created_at:
+  = @post.created_at
+%div 
+  updated_at:
+  = @post.updated_at
