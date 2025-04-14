@@ -1,6 +1,4 @@
 class PostsController < ApplicationController
-  # before_action :getPost, only: [ :create ]
-
   def index
     @posts = Post.limit(10).order(id: :desc)
   end
@@ -10,7 +8,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    post = Post.new(post_params)
+    post = current_user.posts.build(post_params)
     if post.save
       redirect_to posts_path, notice: "ポストを新規作成しました"
     else
