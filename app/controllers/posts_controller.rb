@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  before_action :authenticate_user!, only: [ :new, :create, :index  ]
+
   def index
     @posts = Post.limit(10).order(id: :desc)
   end
