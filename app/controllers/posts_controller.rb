@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, only: [ :new, :create, :index  ]
+  before_action :correct_user, only: [ :edit, :update ]
 
   def index
     @posts = Post.limit(10).order(id: :desc)
@@ -48,5 +49,10 @@ class PostsController < ApplicationController
 
     def post_params
       params.require(:post).permit(:content)
+    end
+
+    def correct_user
+      user = User.find(getPost.user_id)
+      redirect_to posts_path, alert: "ポストの作成者のみ編集可能です" unless user == current
     end
 end
