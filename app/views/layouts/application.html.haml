@@ -16,7 +16,11 @@
     = javascript_importmap_tags
   %body
     %div.container
-      = params 
+      = render 'layouts/header'
+      - if user_signed_in?
+        .container
+          ログイン中：
+          = current_user.id
       = flash.notice
       = flash.alert
       = yield
