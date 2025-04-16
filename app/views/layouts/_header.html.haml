@@ -1,0 +1,9 @@
+- if user_signed_in?
+  .container 
+    email: 
+    current_user.email
+  .container 
+    = link_to('ユーザー一覧', users_index_path)
+- else
+  = link_to('新規ユーザー登録', new_user_session_path)
+  = link_to('ログイン', new_user_registration_path)
