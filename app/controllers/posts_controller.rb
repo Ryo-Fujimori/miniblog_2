@@ -53,6 +53,6 @@ class PostsController < ApplicationController
 
     def correct_user
       user = User.find(getPost.user_id)
-      redirect_to posts_path, alert: "ポストの作成者のみ編集可能です" unless user == current
+      redirect_to posts_path, alert: "ポストの作成者のみ編集可能です" unless user == current_user
     end
 end
