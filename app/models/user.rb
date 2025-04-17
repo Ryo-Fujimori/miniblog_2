@@ -7,6 +7,6 @@ class User < ApplicationRecord
 
   def follow(user_id)
     user = User.find(user_id)
-    current_user.active_relationship.build(user)
+    current_user.active_relationship.create(user)
   end
 end
