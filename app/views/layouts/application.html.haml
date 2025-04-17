@@ -17,10 +17,7 @@
   %body
     %div.container
       = render 'layouts/header'
-      - if user_signed_in?
-        .container
-          ログイン中：
-          = current_user.id
+      = params
       = flash.notice
       = flash.alert
       = yield
