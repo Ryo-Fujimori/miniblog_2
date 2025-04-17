@@ -12,7 +12,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    post = current_user.posts.build(post_params)
+    post = current_user.posts.build(posts_params)
     if post.save
       redirect_to posts_path, notice: "ポストを新規作成しました"
     else
@@ -24,7 +24,7 @@ class PostsController < ApplicationController
   end
 
   def update
-    if @post.update(post_params)
+    if @post.update(posts_params)
       redirect_to posts_path, notice: "ポストを更新しました。"
     else
       render new_post, alert: "ポストを更新出来ませんでした。"
@@ -44,7 +44,7 @@ class PostsController < ApplicationController
       @post = Post.find(params[:id])
     end
 
-    def post_params
+    def posts_params
       params.require(:post).permit(:content)
     end
 
