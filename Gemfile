@@ -16,21 +16,22 @@ gem "bootsnap", require: false
 gem "kamal", require: false
 gem "thruster", require: false
 
-gem 'devise'
-gem 'haml-rails'
-gem 'simple_form'
+gem "devise"
+gem "haml-rails"
+gem "simple_form"
 
 group :development, :test do
   gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"
   gem "brakeman", require: false
   gem "rubocop-rails-omakase", require: false
 
-  gem 'haml-lint'
-  gem 'bullet'
+  gem "haml-lint"
+  gem "bullet"
 end
 
 group :development do
   gem "web-console"
+  gem "faker"
 end
 
 group :test do
