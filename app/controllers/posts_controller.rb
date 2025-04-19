@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   before_action :correct_user, only: [ :edit, :update ]
 
   def index
-    @posts = Post.limit(10).order(id: :desc)
+    @pagy, @posts = pagy(Post.all)
   end
 
   def new
