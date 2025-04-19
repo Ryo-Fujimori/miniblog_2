@@ -19,11 +19,11 @@ ActiveRecord::Schema[8.0].define(version: 2025_04_14_165830) do
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
-  create_table "relationship", force: :cascade do |t|
+  create_table "relationships", force: :cascade do |t|
     t.integer "followed_id"
     t.integer "follower_id"
-    t.index ["followed_id"], name: "index_relationship_on_followed_id"
-    t.index ["follower_id"], name: "index_relationship_on_follower_id"
+    t.index ["followed_id"], name: "index_relationships_on_followed_id"
+    t.index ["follower_id"], name: "index_relationships_on_follower_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -38,6 +38,6 @@ ActiveRecord::Schema[8.0].define(version: 2025_04_14_165830) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "relationship", "users", column: "followed_id"
-  add_foreign_key "relationship", "users", column: "follower_id"
+  add_foreign_key "relationships", "users", column: "followed_id"
+  add_foreign_key "relationships", "users", column: "follower_id"
 end
