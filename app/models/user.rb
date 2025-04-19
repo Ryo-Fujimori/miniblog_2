@@ -6,11 +6,10 @@ class User < ApplicationRecord
   has_many :passive_relationships, class_name: 'Relationship', foreign_key: 'followed_id', dependent: :destroy
 
   def follow(user_id)
-    user = User.find(user_id)
-    current_user.active_relationship.create(user)
+    active_relationships.create(followed_id: user_id)
   end
 
-  def unfollow
-    Relationship.find(params[:id]).destroy!
+  def unfollow(id)
+    Relationship.find(id).destroy!
   end
 end
