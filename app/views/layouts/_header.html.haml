@@ -1,7 +1,7 @@
 - if user_signed_in?
   .container 
-    email: 
-    current_user.email
+    ログイン中: 
+    = current_user.email
   .container 
     = link_to('ユーザー一覧', users_path)
     = link_to('ポスト一覧', posts_path)
