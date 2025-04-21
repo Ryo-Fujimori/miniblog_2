@@ -1,3 +1,8 @@
+-# 自分自身もフォローできてしまう
+-# ２０人表示で２０クエリ実行されてそう
+-# コントローラで取っておく↓
+-# @follower_ids = current_user.active_relationships.pluck(:followed_id)
+-# follower_ids.exists?(user_id) でフォロー中かを確認する
 - relationship = current_user.active_relationships.find_by(followed_id: user_id)
 - if relationship
   = button_to 'フォロー解除', relationship_path(id: relationship.id), method: :delete
