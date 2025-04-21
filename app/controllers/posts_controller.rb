@@ -35,6 +35,7 @@ class PostsController < ApplicationController
   end
 
   def destroy
+    # 人が書いた投稿が消せてしまう
     Post.find(params[:id]).destroy!
     redirect_to posts_path, notice: "ポストを削除しました。"
   end
