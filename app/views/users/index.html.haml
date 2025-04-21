@@ -3,5 +3,5 @@
   - @users.each do |user|
     %li
       = user.email
-      = render 'followform', user_id: user.id 
+      = render 'follow_button', user_id: user.id
 = pagy_bootstrap_nav(@pagy).html_safe

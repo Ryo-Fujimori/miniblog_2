@@ -1,5 +1,0 @@
-- relationship = current_user.active_relationships.find_by(followed_id: user_id)
-- if relationship
-  = button_to 'フォロー解除', relationship_path(id: relationship.id), method: :delete
-- else
-  = button_to 'フォロー', relationships_path, method: :post, params: {id: user_id}

@@ -1,6 +1,9 @@
 source "https://rubygems.org"
 
 gem "rails", "~> 8.0.2"
+
+# ここは空行をあけておいて、railsがソートされないようにしておく
+
 gem "propshaft"
 gem "sqlite3", ">= 2.1"
 gem "puma", ">= 5.0"
@@ -24,10 +27,15 @@ gem 'pagy'
 group :development, :test do
   gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"
   gem "brakeman", require: false
-  gem "rubocop-rails-omakase", require: false
+
+  # こっちを使うようにしてほしいかな
+  gem 'sgcop', github: 'SonicGarden/sgcop'
+  # gem "rubocop-rails-omakase", require: false
 
   gem "haml-lint"
   gem "bullet"
+  gem 'factory_bot_rails'
+  gem 'rspec-rails'
 end
 
 group :development do

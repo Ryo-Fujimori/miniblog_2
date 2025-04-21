@@ -6,6 +6,7 @@
       = post.id
       = post.content
       = link_to '詳細',post_path(post.id)
+      -# 投稿者以外は編集・削除できないようにしたい
       = link_to '編集',edit_post_path(post.id)
       = link_to '削除', post_path(post), data: { turbo_method: :delete, turbo_confirm: "削除します、よろしいですか？" }
 = pagy_bootstrap_nav(@pagy).html_safe

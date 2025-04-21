@@ -1,14 +1,18 @@
 = render 'toindex'
 %h1 ポスト詳細
-%div 
-  ID: 
+
+-# post.idはユーザーに必要？
+%div
+  ID:
   = @post.id
-%div 
+%div
   content:
   = @post.content
-%div 
+
+-# だいたい投稿日時を表示するサイトが多いと思う
+%div
   created_at:
   = @post.created_at
-%div 
+%div
   updated_at:
   = @post.updated_at

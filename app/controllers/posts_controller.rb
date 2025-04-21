@@ -12,11 +12,11 @@ class PostsController < ApplicationController
   end
 
   def create
-    post = current_user.posts.build(posts_params)
-    if post.save
+    @post = current_user.posts.build(posts_params)
+    if @post.save
       redirect_to posts_path, notice: "ポストを新規作成しました"
     else
-      render new_post, alert: "ポストを作成出来ませんでした。"
+      render :new, status: :unprocessable_entity, alert: "ポストを作成出来ませんでした。"
     end
   end
 
@@ -27,7 +27,7 @@ class PostsController < ApplicationController
     if @post.update(posts_params)
       redirect_to posts_path, notice: "ポストを更新しました。"
     else
-      render new_post, alert: "ポストを更新出来ませんでした。"
+      render :new, status: :unprocessable_entity, alert: "ポストを更新出来ませんでした。"
     end
   end
 
@@ -35,6 +35,7 @@ class PostsController < ApplicationController
   end
 
   def destroy
+    # 人が書いた投稿が消せてしまう
     Post.find(params[:id]).destroy!
     redirect_to posts_path, notice: "ポストを削除しました。"
   end
