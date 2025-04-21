@@ -4,3 +4,4 @@
     %li
       = user.email
       = render 'followform', user_id: user.id 
+= pagy_bootstrap_nav(@pagy).html_safe
