@@ -12,6 +12,8 @@
 
 ActiveRecord::Schema[8.0].define(version: 2025_04_14_165830) do
   create_table "posts", force: :cascade do |t|
+    # textじゃなくていいの？
+    # limit: 140 にしていると200文字以上にしたいときにmigrationが必要になるけどいいか？
     t.string "content", limit: 140
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
