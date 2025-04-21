@@ -24,6 +24,8 @@ ActiveRecord::Schema[8.0].define(version: 2025_04_14_165830) do
   create_table "relationships", force: :cascade do |t|
     t.integer "followed_id"
     t.integer "follower_id"
+    # unique indexがないので、同じユーザーを2回フォローできてしまう
+    # t.index ["followed_id", "follower_id"], name: "index_relationships_on_followed_id_and_follower_id", unique: true
     t.index ["followed_id"], name: "index_relationships_on_followed_id"
     t.index ["follower_id"], name: "index_relationships_on_follower_id"
   end
