@@ -1,3 +1,4 @@
-= simple_form_for @post do |f|
+-# パーシャルではインスタンス変数をつかわないように
+= simple_form_for post do |f|
   = f.input :content
   = f.button :submit
